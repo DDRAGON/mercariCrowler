@@ -25,10 +25,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.get('/cheapMercariAPI', function(req, res) {
+app.get('/newCheapMercariAPI', function(req, res) {
   res.header('Access-Control-Allow-Origin', '*');
   providingObj = crawMercari.getNewestDatas();
   // providingObj = crawMercari.getMercariDatas();
+  res.json( {"mercariDatas": providingObj} );
+});
+
+app.get('/cheapMercariAPI', function(req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
+  //providingObj = crawMercari.getNewestDatas();
+  providingObj = crawMercari.getMercariDatas();
   res.json( {"mercariDatas": providingObj} );
 });
 
