@@ -4,7 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var crawMercari = require('./modules/crawMercari');
 
+var providingObj = {};
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -25,7 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/cheapMercariAPI', function(req, res) {
   res.header('Access-Control-Allow-Origin', '*');
-  res.json({"test": "hoge"});
+  providingObj = crawMercari.getNewestDatas();
+  // providingObj = crawMercari.getMercariDatas();
+  res.json( {"mercariDatas": providingObj} );
 });
 
 app.use('/', index);
