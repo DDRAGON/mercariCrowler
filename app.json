@@ -1,0 +1,8 @@
+{
+  "name": "mercariCrawler",
+  "description": "crawling Mercari",
+  "repository": "https://github.com/DDRAGON/mercariCrowler",
+  "logo": "",
+  "keywords": ["node"],
+  "image": "heroku/nodejs"
+}
